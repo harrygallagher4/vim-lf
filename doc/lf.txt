@@ -1,13 +1,6 @@
 *lf.vim* lf file manager plugin for vim/neovim.
 *lf*
 >
-  __   __     __   __     __   __     __   __   __     __    __
- /\ "-.\ \   /\ "-.\ \   /\ "-.\ \   /\ \ / /  /\ \   /\ "-./  \
- \ \ \-.  \  \ \ \-.  \  \ \ \-.  \  \ \ \'/   \ \ \  \ \ \-./\ \
-  \ \_\\"\_\  \ \_\\"\_\  \ \_\\"\_\  \ \__|    \ \_\  \ \_\ \ \_\
-   \/_/ \/_/   \/_/ \/_/   \/_/ \/_/   \/_/      \/_/   \/_/  \/_/
-<
-
 =============================================================================
 CONTENTS *lf-help*
 
@@ -38,7 +31,7 @@ Requirements                                                          *lf-req*
 =============================================================================
 Usage                                                               *lf-usage*
 
-By running |:NnnPicker| or calling the |lf#pick()| function, a new terminal
+By running |:LfPicker| or calling the |lf#pick()| function, a new terminal
 buffer opens running an lf process in picker mode.
 
 Once you select (see https://github.com/jarun/lf#selection) one or more
@@ -56,10 +49,8 @@ To discard selection and exit, press ^G.
 -----------------------------------------------------------------------------
 Commands                                                         *lf-commands*
 
-:NnnPicker                                                         *:NnnPicker*
+:LfPicker                                                         *:LfPicker*
                   Opens an lf window.
-:Np                                                                       *:Np*
-                  Does the same as :NnnPicker.
 
 -----------------------------------------------------------------------------
 Mappings                                                         *lf-mappings*
@@ -68,7 +59,7 @@ Defaults mappings. Can be disabled by setting |g:lf#set_default_mappings| to
 0.
 
 <leader>n
-                  Runs |:NnnPicker|.
+                  Runs |:LfPicker|.
 
 -----------------------------------------------------------------------------
 Configurations                                                     *lf-config*
@@ -82,12 +73,12 @@ g:lf#set_default_mappings                         *g:lf#set_default_mappings*
                   let g:lf#set_default_mappings = 0
 
                   " Set your own
-                  nnoremap <silent> <leader>nn :NnnPicker<CR>
+                  nnoremap <silent> <leader>nn :LfPicker<CR>
 
 
                   " Or override
                   " Start lf in the current file's directory
-                  nnoremap <leader>n :NnnPicker '%:p:h'<CR>
+                  nnoremap <leader>n :LfPicker '%:p:h'<CR>
 <
 
 g:lf#layout                                                     *g:lf#layout*
@@ -171,7 +162,7 @@ Functions                                                            *lf-func*
 lf#pick([{dir}][,{opts}])                                         *lf#pick()*
                   Can be called with custom directory and additional options
                   such as opening file in splits or tabs. Basically a more
-                  configurable version of |:NnnPicker| command.
+                  configurable version of |:LfPicker| command.
 
                   {dir} : (string) a directory.
                   {opts}: (dict) can be:
@@ -197,15 +188,18 @@ You can define env variables in `vimrc` and lf will detect it.
 =============================================================================
 Credits                                                           *lf-credits*
 
+Fork by Harry Gallagher. I just changed one line.
+github: https://github.com/harrygallagher4
+
+Based on vim-lf plugin maintained by Ganesh Khade
+github: https://github.com/khadegd
+
 Main lf program by Arun Prakash Jana
 github: https://github.com/jarun
 
-Vim/neovim plugin maintained by Michael Chris Lopez
-gitub: https://github.com/mcchrish
-
 Source codes:
 lf: https://github.com/jarun/lf
-vim plugin: https://github.com/mcchrish/lf.vim
+vim plugin: https://github.com/harrygallagher4/vim-lf
 
 =============================================================================
 vim:tw=78:ts=2:et:ft=help:norl:
